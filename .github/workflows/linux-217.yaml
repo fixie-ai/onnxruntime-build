@@ -124,13 +124,11 @@ jobs:
         if: steps.cache-build-result.outputs.cache-hit != 'true'
         shell: bash
         run: |
-          ls -lh output/static_lib/
-          ls -lh output/static_lib/include
-          ls -lh output/static_lib/lib
+          ls -lhR output
 
           dst=onnxruntime-linux-x64-static_lib-${ONNXRUNTIME_VERSION}-glibc2_17
           mkdir $dst
-          cp -av output/static_lib/* $dst
+          cp -av output/static_lib/lib/* $dst
 
           zip -r ${dst}.zip $dst/
 
