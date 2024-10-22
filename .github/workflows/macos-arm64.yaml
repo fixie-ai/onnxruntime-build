@@ -115,9 +115,7 @@ jobs:
         if: steps.cache-build-result.outputs.cache-hit != 'true'
         shell: bash
         run: |
-          ls -lh output/static_lib/
-          ls -lh output/static_lib/include
-          ls -lh output/static_lib/lib
+          ls -lhR output/
 
           cp -v onnxruntime/include/onnxruntime/core/providers/coreml/coreml_provider_factory.h output/static_lib/include
 
